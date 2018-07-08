@@ -9,14 +9,14 @@
       <div class="post">
 
         <h2 class="title">
-          <a href="/posts/<%= post.id %>"><%= post.title %></a>
+          <%= link_to post.title, posts_path(post.id) %>
         </h2>
 
         <small class="meta">
           <span class="author">by <%= post.author %> -</span>
           <em class="created_at"><%= post.created_at %></em>
         </small>
-        <a href="/posts/<%= post.id %>/edit">Edit</a>
+        <%= link_to 'Edit', posts_path(post.id) %>
         <form method="post" action="/posts/<%= post.id %>" style='display: inline;'>
           <input type="submit" value="Delete">
         </form>
@@ -24,6 +24,6 @@
       <hr />
     <% end %>
   </div>
-  <a href="/posts/new">New Posts</a>
+  <%= link_to 'New Post', new_post_path %>
 </body>
 </html>
